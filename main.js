@@ -52,5 +52,28 @@ console.log(duplicateEncode("din")) // "((("
 console.log(duplicateEncode("recede")) // "()()()"
 console.log(duplicateEncode("Success")) // ")())())"
 console.log(duplicateEncode("(( @")) // "))(("
+console.log('*'.repeat(30))
 
+/* https://www.codewars.com/kata/585d7d5adb20cf33cb000235/train/javascript */
 
+function findUniq(arr) {
+    let resultNumber;
+for (let i = 0; i < arr.length; i++) {
+    let first = arr.indexOf(arr[i]);
+    let last = arr.lastIndexOf(arr[i]);
+    if (first === last) {
+        resultNumber = arr[i]
+        }
+    }
+    return resultNumber
+  }
+
+console.log(findUniq([ 1, 0, 0 ])); // 1
+console.log(findUniq([ 0, 1, 0 ])); // 1
+console.log(findUniq([ 0, 0, 1 ])); // 1
+console.log(findUniq([ 1, 1, 1, 2, 1, 1 ])); // 2
+console.log(findUniq([ 1, 1, 2, 1, 1 ])); // 2
+console.log(findUniq([ 3, 10, 3, 3, 3 ])); // 10
+console.log(findUniq([ 3, 10, 10, 3, 4, 3, 3 ])); // 4
+
+console.log('*'.repeat(30))
