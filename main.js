@@ -35,19 +35,22 @@ console.log('*'.repeat(30))
 /* https://www.codewars.com/kata/54b42f9314d9229fd6000d9c/train/javascript */
 
 function duplicateEncode(word){
-
+    let lowerCase = word.toLowerCase();
+    let arrWord = lowerCase.split('');
+    let bracketArr = [];
+    let countObj = {};
+    arrWord.forEach(function(letter){
+        countObj[letter] ? countObj[letter]++ : (countObj[letter] = 1);
+    });
+    for (let i = 0; i < lowerCase.length; i++) {
+        countObj[lowerCase[i]] > 1 ? bracketArr.push(')') : bracketArr.push('(')
+    }
+    return bracketArr.join('')
 }
 
-console.log(duplicateEncode("din"))
-console.log(duplicateEncode("recede"))
-console.log(duplicateEncode("Success"))
-console.log(duplicateEncode("(( @"))
+console.log(duplicateEncode("din")) // "((("
+console.log(duplicateEncode("recede")) // "()()()"
+console.log(duplicateEncode("Success")) // ")())())"
+console.log(duplicateEncode("(( @")) // "))(("
 
-/*
 
-"din"      =>  "((("
-"recede"   =>  "()()()"
-"Success"  =>  ")())())"
-"(( @"     =>  "))(("
-
-*/
