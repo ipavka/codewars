@@ -77,3 +77,17 @@ console.log(findUniq([ 3, 10, 3, 3, 3 ])); // 10
 console.log(findUniq([ 3, 10, 10, 3, 4, 3, 3 ])); // 4
 
 console.log('*'.repeat(30))
+
+/* https://www.codewars.com/kata/57cebe1dc6fdc20c57000ac9/train/javascript */
+
+function findShort(string){
+    return Math.min(...string
+    .split(' ')
+    .map((num) => num.length))
+}
+
+console.log(findShort("bitcoin take over the world maybe who knows perhaps")) // 3
+console.log(findShort("turns out random test cases are easier than writing out basic ones")) // 3
+console.log(findShort("Let's travel abroad shall we")) // 2
+
+console.log('*'.repeat(30))
