@@ -91,3 +91,20 @@ console.log(findShort("turns out random test cases are easier than writing out b
 console.log(findShort("Let's travel abroad shall we")) // 2
 
 console.log('*'.repeat(30))
+
+
+/* https://www.codewars.com/kata/5601409514fc93442500010b/train/javascript */
+
+function betterThanAverage(classPoints, yourPoints) {
+    const sum = classPoints.reduce((acc, item) => {
+        return acc + item
+    }, 0);
+
+    return sum / classPoints.length < yourPoints
+  }
+
+console.log(betterThanAverage([2, 3], 5)); // true
+console.log(betterThanAverage([100, 40, 34, 57, 29, 72, 57, 88], 75)); // true
+console.log(betterThanAverage([12, 23, 34, 45, 56, 67, 78, 89, 90], 69)); // true
+
+console.log('*'.repeat(30))
