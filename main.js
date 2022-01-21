@@ -108,3 +108,33 @@ console.log(betterThanAverage([100, 40, 34, 57, 29, 72, 57, 88], 75)); // true
 console.log(betterThanAverage([12, 23, 34, 45, 56, 67, 78, 89, 90], 69)); // true
 
 console.log('*'.repeat(30))
+
+
+/* https://www.codewars.com/kata/5842df8ccbd22792a4000245/train/javascript */
+
+function expandedForm(num) {
+    return String(num).length
+  }
+
+console.log(expandedForm(12)) // '10 + 2'
+console.log(expandedForm(42)) // '40 + 2'
+console.log(expandedForm(70304)) // '70000 + 300 + 4'
+console.log('*'.repeat(30))
+console.log(42 % 10);
+console.log(70304 / 10);
+console.log(70304 / 100);
+console.log(70304 / 1000);
+console.log(70304 / 10000);
+
+
+
+
+
+
+
+
+
+
+
+
+
