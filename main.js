@@ -113,27 +113,24 @@ console.log('*'.repeat(30))
 /* https://www.codewars.com/kata/5842df8ccbd22792a4000245/train/javascript */
 
 function expandedForm(num) {
-    return String(num).length
+    let numStr = String(num);
+    let resArray = [];
+
+    for (let i = numStr.length; i > 0; i--) {
+        let nuFromStr = numStr[Math.abs(i-numStr.length)];
+        let resultNum = `${nuFromStr}${"0".repeat(i-1)}`;
+        if (+resultNum) {
+            resArray.push(`${+resultNum} +`)
+        }
+    }
+    return resArray.join(' ').slice(0, -2)
   }
 
 console.log(expandedForm(12)) // '10 + 2'
 console.log(expandedForm(42)) // '40 + 2'
 console.log(expandedForm(70304)) // '70000 + 300 + 4'
+
 console.log('*'.repeat(30))
-console.log(42 % 10);
-console.log(70304 / 10);
-console.log(70304 / 100);
-console.log(70304 / 1000);
-console.log(70304 / 10000);
-
-
-
-
-
-
-
-
-
 
 
 
