@@ -146,30 +146,78 @@ console.log(lovefunc(0, 0)) // false
 console.log(lovefunc(161, 739)) // false
 console.log(lovefunc(336, 420)) // false
 
+console.log('*'.repeat(30))
 
 /* https://www.codewars.com/kata/56a5d994ac971f1ac500003e/train/javascript */
 
 function longestConsec(strarr, k) {
+    let resObj = {};
+    let result = '';
+    if (strarr.length === 0 || k > strarr.length || k <= 0) {
+        return ''
+    } else {
+    for (let i = 0; i < strarr.length; i++) {
+        resObj[strarr.slice(i, k + i).join('')] = strarr.slice(i, k + i).join('').length
+    }
 
+    let resNum = Object.values(resObj)[0];
+    for (const key in resObj) {
+        if (resObj[key] >= resNum) {
+            resNum = resObj[key]
+            result = key
+        }
+    }
+    return result
+
+    }
 }
 
-// console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2)) // "abigailtheta")
-// console.log(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1)) // "oocccffuucccjjjkkkjyyyeehh")
-// console.log(longestConsec([], 3)) // "")
-// console.log(longestConsec(["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2)) // "wkppqsztdkmvcuwvereiupccauycnjutlvvweqilsfytihvrzlaodfixoyxvyuyvgpck")
-// console.log(longestConsec(["wlwsasphmxx","owiaxujylentrklctozmymu","wpgozvxxiu"], 2)) // "wlwsasphmxxowiaxujylentrklctozmymu")
-// console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], -2)) // "")
-// console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 3)) // "ixoyx3452zzzzzzzzzzzz")
-// console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 15)) // "")
-// console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 0)) // "")
+console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2)) // "abigailtheta")
+console.log(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1)) // "oocccffuucccjjjkkkjyyyeehh")
+console.log(longestConsec([], 3)) // "")
+console.log(longestConsec(["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2)) // "wkppqsztdkmvcuwvereiupccauycnjutlvvweqilsfytihvrzlaodfixoyxvyuyvgpck")
+console.log(longestConsec(["wlwsasphmxx","owiaxujylentrklctozmymu","wpgozvxxiu"], 2)) // "wlwsasphmxxowiaxujylentrklctozmymu")
+console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], -2)) // "")
+console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 3)) // "ixoyx3452zzzzzzzzzzzz")
+console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 15)) // "")
+console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 0)) // "")
 
-let arrWords = ["zone", "abigail", "theta", "form", "libe", "zas"];
-let arrWords1 = ["tree", "foling", "trashy", "blue", "abcdef", "uvwxyz"];
-const res = arrWords1.reduce((obj, item, index, arr) => {
-    obj[item] = [item.length, index];
-    return obj
-}, {})
+// let arrWords1 = ["zone", "abigail", "theta", "form", "libe", "zas"];
+// // let arrWords1 = ["tree", "foling", "trashy", "blue", "abcdef", "uvwxyz"];
+let arrWords1 = ["wlwsasphmxx", "owiaxujylentrklctozmymu", "wpgozvxxiu"];
+// // let arrWords1 = ["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"];
+// // let arrWords1 = ["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"];
+// // let arrWords1 = ["it", "wkppv", "ixoyx", "3452", "zzzzzzzzzzzz"];
+let k = 2;
+// // const res = arrWords1.reduce((obj, item, index, arr) => {
+// //     obj[arrWords1.slice(index, 3+index).join('')] = [item.length, index];
+// //     return obj
+// // }, {})
+let res = {};
 
-console.log(res)
+let resArr = '';
 
+for (let i = 0; i < arrWords1.length; i++) {
+    res[arrWords1.slice(i, k + i).join('')] = arrWords1.slice(i, k + i).join('').length
+}
+console.log(res);
+let resNum = Object.values(res)[0];
+console.log(resNum, '<<');
+for (const key in res) {
+    console.log(res[key]);
+    if (res[key] >= resNum) {
+        resNum = res[key]
+        resArr = key
+    }
+}
+console.log(resArr);
 
+// console.log(arrWords1.slice(0, 2).join(''));
+// console.log(arrWords1.slice(1, 3).join(''));
+/*
+treefoling   (length 10)  concatenation of strarr[0] and strarr[1]
+folingtrashy ("      12)  concatenation of strarr[1] and strarr[2]
+trashyblue   ("      10)  concatenation of strarr[2] and strarr[3]
+blueabcdef   ("      10)  concatenation of strarr[3] and strarr[4]
+abcdefuvwxyz ("      12)  concatenation of strarr[4] and strarr[5]
+ */
