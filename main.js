@@ -133,5 +133,43 @@ console.log(expandedForm(70304)) // '70000 + 300 + 4'
 console.log('*'.repeat(30))
 
 
+/* https://www.codewars.com/kata/555086d53eac039a2a000083/train/javascript */
+
+function lovefunc(flower1, flower2){
+    return (flower1 % 2) !== (flower2 % 2)
+}
+
+console.log(lovefunc(1, 4)) // true
+console.log(lovefunc(2, 2)) // false
+console.log(lovefunc(0, 1)) // true
+console.log(lovefunc(0, 0)) // false
+console.log(lovefunc(161, 739)) // false
+console.log(lovefunc(336, 420)) // false
+
+
+/* https://www.codewars.com/kata/56a5d994ac971f1ac500003e/train/javascript */
+
+function longestConsec(strarr, k) {
+
+}
+
+// console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2)) // "abigailtheta")
+// console.log(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1)) // "oocccffuucccjjjkkkjyyyeehh")
+// console.log(longestConsec([], 3)) // "")
+// console.log(longestConsec(["itvayloxrp","wkppqsztdkmvcuwvereiupccauycnjutlv","vweqilsfytihvrzlaodfixoyxvyuyvgpck"], 2)) // "wkppqsztdkmvcuwvereiupccauycnjutlvvweqilsfytihvrzlaodfixoyxvyuyvgpck")
+// console.log(longestConsec(["wlwsasphmxx","owiaxujylentrklctozmymu","wpgozvxxiu"], 2)) // "wlwsasphmxxowiaxujylentrklctozmymu")
+// console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], -2)) // "")
+// console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 3)) // "ixoyx3452zzzzzzzzzzzz")
+// console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 15)) // "")
+// console.log(longestConsec(["it","wkppv","ixoyx", "3452", "zzzzzzzzzzzz"], 0)) // "")
+
+let arrWords = ["zone", "abigail", "theta", "form", "libe", "zas"];
+let arrWords1 = ["tree", "foling", "trashy", "blue", "abcdef", "uvwxyz"];
+const res = arrWords1.reduce((obj, item, index, arr) => {
+    obj[item] = [item.length, index];
+    return obj
+}, {})
+
+console.log(res)
 
 
