@@ -159,8 +159,7 @@ function longestConsec(strarr, k) {
         resObj[strarr.slice(i, k + i).join('')] = strarr.slice(i, k + i).join('').length
     }
     let maxLen = Math.max(...Object.values(resObj));
-    let getStr = Object.keys(resObj).find(key => resObj[key] === maxLen);
-    return getStr
+    return Object.keys(resObj).find(key => resObj[key] === maxLen);
     }
 }
 
