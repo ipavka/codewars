@@ -22,3 +22,29 @@ console.log(solutionEnds('abcde', 'abc')) //  false
 
 console.log('*'.repeat(30))
 
+
+/* https://www.codewars.com/kata/5556282156230d0e5e000089/train/javascript */
+
+function DNAtoRNA(dna) {
+    // return dna.replaceAll(/T/g, 'U'); // не везде работает
+    return dna.replace(/T/g, 'U');
+    // return dna.split("T").join("U"); // итересно
+}
+
+console.log(DNAtoRNA("TTTT")) // "UUUU"
+console.log(DNAtoRNA("GCAT")) // "GCAU"
+console.log(DNAtoRNA("GACCGCCGCC")) // "GACCGCCGCC"
+console.log(DNAtoRNA("")) //
+
+console.log('*'.repeat(30))
+
+
+/* https://www.codewars.com/kata/520b9d2ad5c005041100000f/train/javascript */
+
+function pigIt(str){
+
+}
+
+console.log(pigIt('Pig latin is cool')); // 'igPay atinlay siay oolcay'
+console.log(pigIt('This is my string')); // 'hisTay siay ymay tringsay'
+console.log(pigIt('Hello world !'));     // elloHay orldway !
