@@ -61,51 +61,68 @@ console.log('*'.repeat(30))
 /* https://www.codewars.com/kata/525caa5c1bf619d28c000335/train/javascript */
 
 function isSolved(board) {
-
+    let result = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []};
+    for (let i = 0; i < board.length; i++) {
+        result[1].push(board[0][i])
+        result[2].push(board[1][i])
+        result[3].push(board[2][i])
+        result[4].push(board[i][i])
+        result[5].push(board[i][0])
+        result[6].push(board[i][1])
+        result[7].push(board[i][2])
+        result[8].push(board[i][(board.length-1)-i])
+    }
+    return findTruEqual(result) ? findTruEqual(result) : notWinner(result)
 }
 
-console.log(isSolved([
-    [0,0,1],
+function findTruEqual(obj) {
+    for (let key in obj) {
+        let findEqual = obj[key].every((val, i, arr) => val === arr[0])
+        if (findEqual) {
+            return obj[key][0]
+        }
+    }
+}
+
+function notWinner(obj) {
+    let setArr = [];
+    let max;
+    let min;
+    for (let key in obj) {
+        let resSet = new Set(obj[key])
+        setArr.push(resSet.size)
+    }
+    max = Math.max(...setArr);
+    min = Math.min(...setArr);
+    return max === min ? 0 : -1
+}
+
+console.log(isSolved( [ // не до конца игры
+    [1,2,1],
+    [2,1,2],
+    [2,1,0]
+]))
+console.log(isSolved([ // вин "X" => 1
+    [0,1,1],
     [0,1,2],
     [2,1,0]
 ]))
-
-// let sum = [ // не до конца игры
-//     [1,2,1],
-//     [2,1,2],
-//     [2,1,0]
-// ];
-// let sum = [
-//     [0,1,1],
-//     [0,1,2],
-//     [2,1,0]
-// ]
-let sum = [// Ничья
+console.log(isSolved( [// вин "O" => 2
+    [1,1,2],
+    [1,2,2],
+    [2,2,1]
+]))
+console.log(isSolved( [// Ничья
     [1,2,2],
     [2,2,1],
     [1,1,2]
-]
+]))
 
-let X = 111;
-let O = 222;
-let resObj = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []};
-for (let i = 0; i < sum.length; i++) {
-    resObj[1].push(sum[0][i])
-    resObj[2].push(sum[1][i])
-    resObj[3].push(sum[2][i])
-    resObj[4].push(sum[i][i])
-    resObj[5].push(sum[i][0])
-    resObj[6].push(sum[i][1])
-    resObj[7].push(sum[i][2])
-    resObj[8].push(sum[i][(sum.length-1)-i])
-}
-for (let key in resObj) {
-    let res = resObj[key].join('')
-    let resSet = new Set(resObj[key])
-    console.log(res, resSet.size)
-    // console.log(resSet)
-}
-console.log(resObj)
+console.log('*'.repeat(30))
+
+
+
+
 
 
 
