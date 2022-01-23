@@ -69,3 +69,48 @@ console.log(isSolved([
     [0,1,2],
     [2,1,0]
 ]))
+
+// let sum = [ // не до конца игры
+//     [1,2,1],
+//     [2,1,2],
+//     [2,1,0]
+// ];
+// let sum = [
+//     [0,1,1],
+//     [0,1,2],
+//     [2,1,0]
+// ]
+let sum = [// Ничья
+    [1,2,2],
+    [2,2,1],
+    [1,1,2]
+]
+
+let X = 111;
+let O = 222;
+let resObj = {1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: []};
+for (let i = 0; i < sum.length; i++) {
+    resObj[1].push(sum[0][i])
+    resObj[2].push(sum[1][i])
+    resObj[3].push(sum[2][i])
+    resObj[4].push(sum[i][i])
+    resObj[5].push(sum[i][0])
+    resObj[6].push(sum[i][1])
+    resObj[7].push(sum[i][2])
+    resObj[8].push(sum[i][(sum.length-1)-i])
+}
+for (let key in resObj) {
+    let res = resObj[key].join('')
+    let resSet = new Set(resObj[key])
+    console.log(res, resSet.size)
+    // console.log(resSet)
+}
+console.log(resObj)
+
+
+
+
+
+
+
+
