@@ -42,9 +42,30 @@ console.log('*'.repeat(30))
 /* https://www.codewars.com/kata/520b9d2ad5c005041100000f/train/javascript */
 
 function pigIt(str){
-
+    let result = [];
+    let inStr = str.split(' ')
+    for (let i = 0; i < inStr.length; i++) {
+        let str = inStr[i];
+        result.push(/[A-Za-z]/.test(str) ? `${str.slice(1)}${str[0]}ay` : str)
+    }
+    return result.join(' ')
 }
 
 console.log(pigIt('Pig latin is cool')); // 'igPay atinlay siay oolcay'
 console.log(pigIt('This is my string')); // 'hisTay siay ymay tringsay'
 console.log(pigIt('Hello world !'));     // elloHay orldway !
+
+console.log('*'.repeat(30))
+
+
+/* https://www.codewars.com/kata/525caa5c1bf619d28c000335/train/javascript */
+
+function isSolved(board) {
+
+}
+
+console.log(isSolved([
+    [0,0,1],
+    [0,1,2],
+    [2,1,0]
+]))
