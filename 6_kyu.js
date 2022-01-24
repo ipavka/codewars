@@ -124,14 +124,23 @@ console.log('*'.repeat(30))
 /* https://www.codewars.com/kata/52774a314c2333f0a7000688/train/javascript */
 
 function validParentheses(parens) {
-
+    if(parens.length === 0) return false;
+    let objCount = {};
+    parens.split('').forEach(function(letter){
+        objCount[letter] ? objCount[letter]++ : (objCount[letter] = 1);
+    });
+    let count = Object.values(objCount).length;
+    return count < 2 ? false : Object.values(objCount).every((val, i, arr) => val === arr[0])
 }
 
 
+console.log(validParentheses("")); // false
+console.log(validParentheses("()")); // true
+console.log(validParentheses(")(()))")); // false
+console.log(validParentheses("(")); // false
+console.log(validParentheses("(())((()())())")); // true
 
 console.log('*'.repeat(30))
-
-
 
 
 
