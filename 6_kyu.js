@@ -123,22 +123,31 @@ console.log('*'.repeat(30))
 
 /* https://www.codewars.com/kata/52774a314c2333f0a7000688/train/javascript */
 
+
 function validParentheses(parens) {
-    if(parens.length === 0) return false;
-    let objCount = {};
-    parens.split('').forEach(function(letter){
-        objCount[letter] ? objCount[letter]++ : (objCount[letter] = 1);
-    });
-    let count = Object.values(objCount).length;
-    return count < 2 ? false : Object.values(objCount).every((val, i, arr) => val === arr[0])
+    if(parens.length === 0) {
+        return true;
+    } else if (parens.startsWith(')')) {
+        return false
+    }
+    let arr = parens.split('')
+    for (let i = 0; arr.length > 3; i++) {
+        if (arr[i] !== arr[i+1] && arr[i] !== ')') {
+            arr.splice(i, 2)
+            i = 0;
+        }
+    }
+    return arr.join('') === "()"
 }
 
-
-console.log(validParentheses("")); // false
+console.log(validParentheses("")); // true
 console.log(validParentheses("()")); // true
 console.log(validParentheses(")(()))")); // false
 console.log(validParentheses("(")); // false
+console.log(validParentheses("())(")); // false
+console.log(validParentheses("())(()")); // false
 console.log(validParentheses("(())((()())())")); // true
+console.log(validParentheses("()()(())()((()))()()(())()()()()()(())()")); // true
 
 console.log('*'.repeat(30))
 
