@@ -140,6 +140,36 @@ function validParentheses(parens) {
     return arr.join('') === "()"
 }
 
+// function validParentheses(parens){ // топовое решение
+//     let n = 0;
+//     for (let i = 0; i < parens.length; i++) {
+//         if (parens[i] === '(') n++;
+//         if (parens[i] === ')') n--;
+//         if (n < 0) return false;
+//     }
+//
+//     return n === 0;
+// }
+
+// function validParentheses(str) { // решение с канала Сергея Пузанкова
+//     let stack = [];
+//     const closeArr = [')', '}', ']'];
+//     const bracket = {
+//         ')': '(',
+//         '}': '{',
+//         ']': '[',
+//     }
+//     for (let i = 0; i < str.length; i++) {
+//         const current = str[i]
+//         if(closeArr.includes(current)) {
+//             if (bracket[current] !== stack.pop()) return false;
+//         } else {
+//             stack.push(current)
+//         }
+//     }
+//     return stack.length === 0;
+// }
+
 console.log(validParentheses("")); // true
 console.log(validParentheses("()")); // true
 console.log(validParentheses(")(()))")); // false
