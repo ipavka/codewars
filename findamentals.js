@@ -26,3 +26,4 @@ console.log(str.toJadenCase())
 console.log('*'.repeat(30))
 
 
+/* https://www.codewars.com/kata/55c45be3b2079eccff00010f/train/javascript */
