@@ -182,6 +182,59 @@ console.log(validParentheses("()()(())()((()))()()(())()()()()()(())()")); // tr
 console.log('*'.repeat(30))
 
 
+/* https://www.codewars.com/kata/514a024011ea4fb54200004b/train/javascript */
+
+function domainName(url){
+    const result = [];
+    if (url.startsWith('ht')) {
+        result.push(url.split('//').splice(1).join(''))
+    } else {
+        result.push(url.split('.').join('.'))
+    }
+
+    const res = result.join('.').split('.')
+    if (res[0].startsWith('ww')) {
+        return res[1]
+    } else {
+        return res[0]
+    }
+  }
 
 
+console.log(domainName("http://github.com/carbonfive/raygun")) // "github" 
+console.log(domainName("http://www.zombie-bites.com")) // "zombie-bites"
+console.log(domainName("https://www.cnet.com")) // "cnet"
+console.log(domainName("www.xakep.ru")) // "xakep"
+console.log(domainName("http://google.com")) // "google"
+console.log(domainName("http://google.co.jp")) // "google"
+console.log(domainName("https://youtube.com")) // "youtube"
+
+console.log('*'.repeat(30))
+
+
+/* https://www.codewars.com/kata/525f3eda17c7cd9f9e000b39/train/javascript */
+
+function zero() {}
+function one() {}
+function two() {}
+function three() {}
+function four() {}
+function five() {}
+function six() {}
+function seven() {}
+function eight() {}
+function nine() {}
+
+function plus() {}
+function minus() {}
+function times() {}
+function dividedBy() {}
+
+
+console.log(seven(times(five()))); // must return 35
+console.log(four(plus(nine()))); // must return 13
+console.log(eight(minus(three()))); // must return 5
+console.log(six(dividedBy(two()))); // must return 3
+
+console.log('*'.repeat(30))
 
