@@ -41,3 +41,33 @@ console.log(order("")) // "", "empty input should return empty string"
 
 console.log('*'.repeat(30))
 
+/* https://www.codewars.com/kata/57eb8fcdf670e99d9b000272/train/javascript */
+
+const high = (x) => {
+
+}
+
+// console.log(high('man i need a taxi up to ubud')) // 'taxi'
+// console.log(high('what time are we climbing up the volcano')) // 'volcano'
+// console.log(high('take me to semynak')) // 'semynak'
+// console.log(high('aa b')) // 'aa'
+// console.log(high('b aa')) // 'b'
+// console.log(high('bb d')) // 'bb'
+// console.log(high('d bb')) // 'd'
+// console.log(high('aaa b')) // 'aaa'
+let str = 'man i need a taxi up to ubud'.split(' ');
+
+const result = [];
+const objRes = {};
+for (let i = 0; i < str.length ; i++) {
+    let word = str[i];
+    objRes[word] = 0;
+    // console.log(str[i].charCodeAt(0))
+    for (let j = 0; j < word.length; j++) {
+        objRes[word] += word[j].charCodeAt(0)
+        // result.push(word[j].charCodeAt(0))
+    }
+}
+
+console.log(objRes)
+console.log(result.length)
