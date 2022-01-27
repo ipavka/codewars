@@ -55,19 +55,33 @@ const high = (x) => {
 // console.log(high('bb d')) // 'bb'
 // console.log(high('d bb')) // 'd'
 // console.log(high('aaa b')) // 'aaa'
-let str = 'man i need a taxi up to ubud'.split(' ');
+// let str1 = 'man i need a taxi up to ubud'.split(' ');
+// let str1 = 'aa b'.split(' ');
+let str1 = 'd bb'.split(' ');
 
 const result = [];
 const objRes = {};
-for (let i = 0; i < str.length ; i++) {
-    let word = str[i];
+for (let i = 0; i < str1.length ; i++) {
+    let word = str1[i];
     objRes[word] = 0;
-    // console.log(str[i].charCodeAt(0))
+    // console.log(str1[i].charCodeAt(0))
     for (let j = 0; j < word.length; j++) {
         objRes[word] += word[j].charCodeAt(0)
         // result.push(word[j].charCodeAt(0))
     }
 }
 
-console.log(objRes)
-console.log(result.length)
+// console.log(objRes.sort((a, b) => {
+//     return 
+// }))
+
+console.log(Object.entries(objRes).sort((a, b) => {
+         return b[1] - a[1]
+     }));
+
+
+
+console.log('a'.charCodeAt(0));
+console.log('b'.charCodeAt(0));
+console.log('c'.charCodeAt(0));
+console.log('d'.charCodeAt(0));
