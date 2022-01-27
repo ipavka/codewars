@@ -44,44 +44,40 @@ console.log('*'.repeat(30))
 /* https://www.codewars.com/kata/57eb8fcdf670e99d9b000272/train/javascript */
 
 const high = (x) => {
+    const alphabet ='abcdefghijklmnopqrstuvwxyz';
+    let result;
+    const str = x.split(' ');
+    const objRes = {};
+    const enumLetters = {};
 
-}
-
-// console.log(high('man i need a taxi up to ubud')) // 'taxi'
-// console.log(high('what time are we climbing up the volcano')) // 'volcano'
-// console.log(high('take me to semynak')) // 'semynak'
-// console.log(high('aa b')) // 'aa'
-// console.log(high('b aa')) // 'b'
-// console.log(high('bb d')) // 'bb'
-// console.log(high('d bb')) // 'd'
-// console.log(high('aaa b')) // 'aaa'
-// let str1 = 'man i need a taxi up to ubud'.split(' ');
-// let str1 = 'aa b'.split(' ');
-let str1 = 'd bb'.split(' ');
-
-const result = [];
-const objRes = {};
-for (let i = 0; i < str1.length ; i++) {
-    let word = str1[i];
-    objRes[word] = 0;
-    // console.log(str1[i].charCodeAt(0))
-    for (let j = 0; j < word.length; j++) {
-        objRes[word] += word[j].charCodeAt(0)
-        // result.push(word[j].charCodeAt(0))
+    let count = 1
+    for (let value of alphabet) { // numbering of letters
+        enumLetters[value] = count++
     }
+
+    for (let i = 0; i < str.length ; i++) {  // counting "points"
+        const word = str[i];
+        objRes[word] = 0;
+        for (let j = 0; j < word.length; j++) {
+            objRes[word] += enumLetters[word[j]]
+        }
+    }
+    result = Object.entries(objRes).sort((a, b) => {
+        return b[1] - a[1]
+    })
+    return result[0][0]
 }
+// console.log('a'.charCodeAt(0) -96)
 
-// console.log(objRes.sort((a, b) => {
-//     return 
-// }))
+console.log(high('man i need a taxi up to ubud')) // 'taxi'
+console.log(high('what time are we climbing up the volcano')) // 'volcano'
+console.log(high('take me to semynak')) // 'semynak'
+console.log(high('aa b')) // 'aa'
+console.log(high('b aa')) // 'b'
+console.log(high('bb d')) // 'bb'
+console.log(high('d bb')) // 'd'
+console.log(high('aaa b')) // 'aaa'
+console.log(high('px wr kn gj')) // 'wr'
 
-console.log(Object.entries(objRes).sort((a, b) => {
-         return b[1] - a[1]
-     }));
+console.log('*'.repeat(30))
 
-
-
-console.log('a'.charCodeAt(0));
-console.log('b'.charCodeAt(0));
-console.log('c'.charCodeAt(0));
-console.log('d'.charCodeAt(0));
