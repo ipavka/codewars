@@ -134,3 +134,22 @@ console.log(sumDigPow(10, 150)) // [89, 135]
 
 console.log('*'.repeat(30))
 
+
+/* https://www.codewars.com/kata/55fd2d567d94ac3bc9000064/train/javascript */
+
+function rowSumOddNumbers(number) {
+    const result = [];
+    const fullNumberArr = number * number + number;
+    for (let i = 1; i <= fullNumberArr; i += 2) {
+        result.push(i)
+    }
+    return result.slice(-number).reduce((currentSum, currentNumber) => {
+        return currentSum + currentNumber
+    }, 0);
+}
+console.log(rowSumOddNumbers(2));
+
+console.log('*'.repeat(30))
+
+
+/* https://www.codewars.com/kata/578aa45ee9fd15ff4600090d/train/javascript */
