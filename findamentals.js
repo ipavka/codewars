@@ -185,3 +185,16 @@ console.log(sortArray([5, 8, 6, 3, 4]))  // [3, 8, 6, 5, 4]
 console.log(sortArray([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]))  // [1, 8, 3, 6, 5, 4, 7, 2, 9, 0]
 
 console.log('*'.repeat(30))
+
+
+/* https://www.codewars.com/kata/53dbd5315a3c69eed20002dd/train/javascript */
+
+function filter_list(array) {
+    return array.filter(function (num) {
+      return typeof num === "number"
+    })
+  }
+
+console.log(filter_list([1,2,'a','b'])) // [1,2]
+console.log(filter_list([1,'a','b',0,15])) // [1,0,15]
+console.log(filter_list([1,2,'aasf','1','123',123])) // [1,2,123]
