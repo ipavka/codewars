@@ -22,11 +22,15 @@ console.log('*'.repeat(30))
 
 
 function alphanumeric(string){
-
+    if (string.length === 0) return false;
+    const regex = /[^A-Za-z0-9\\s]/g
+    return !regex.test(string)
 }
 
 console.log(alphanumeric("Mazinkaiser")) // true
 console.log(alphanumeric("hello world_")) // false
 console.log(alphanumeric("PassW0rd")) // true
+console.log(alphanumeric("     ")) // false
+console.log(alphanumeric("")) // false
 
 console.log('*'.repeat(30))
