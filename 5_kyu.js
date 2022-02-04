@@ -62,3 +62,20 @@ console.log(uniqueInOrder([1, 2, 2, 3, 3])) // [1,2,3]
 
 console.log('*'.repeat(30))
 
+
+/* https://www.codewars.com/kata/58f5c63f1e26ecda7e000029/train/javascript */
+
+
+function wave(str){
+    // Code here
+  }
+
+
+console.log(wave("hello")) // ["Hello", "hEllo", "heLlo", "helLo", "hellO"];
+console.log(wave("codewars")) // ["Codewars", "cOdewars", "coDewars", "codEwars", "codeWars", "codewArs", "codewaRs", "codewarS"];
+console.log(wave("")) // [];
+console.log(wave("two words")) // ["Two words", "tWo words", "twO words", "two Words", "two wOrds", "two woRds", "two worDs", "two wordS"];
+console.log(wave(" gap ")) // [" Gap ", " gAp ", " gaP "];
+
+
+console.log('*'.repeat(30))
