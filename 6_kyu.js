@@ -238,3 +238,21 @@ console.log(six(dividedBy(two()))); // must return 3
 
 console.log('*'.repeat(30))
 
+
+function stray(numbers) {
+    const result = numbers.reduce(function(acc, el) {
+        acc[el] ? acc[el]++ : (acc[el] = 1)
+        // acc[el] = (acc[el] || 0) + 1;
+        return acc;
+      }, {});
+
+      for (let key in result) {
+        if (result[key] === 1) {
+            return +key
+        }}
+  }
+
+  console.log(stray([1, 1, 2])) // ==> 2
+  console.log(stray([17, 17, 3, 17, 17, 17, 17])) // ==> 3
+  
+  console.log('*'.repeat(30));
