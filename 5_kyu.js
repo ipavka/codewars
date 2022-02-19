@@ -110,3 +110,45 @@ console.log(bouncingBall(30.0, 1, 1.5)) // 15
 console.log('*'.repeat(30))
 
 
+/* https://www.codewars.com/kata/578553c3a1b8d5c40300037c/train/javascript */
+
+const binaryArrayToNumber = (arr) => {
+    return parseInt(arr.join(''), 2)
+}
+
+console.log(binaryArrayToNumber([0,0,0,1])) //  1
+console.log(binaryArrayToNumber([0,0,1,0])) //  2
+console.log(binaryArrayToNumber([1,1,1,1])) //  15
+console.log(binaryArrayToNumber([0,1,1,0])) //  6
+
+console.log('*'.repeat(30))
+
+
+/* https://www.codewars.com/kata/554ca54ffa7d91b236000023/train/javascript */
+
+const deleteNth = (arr, n) => {
+    let countObj = {};
+    let result = [];
+    for (let i = 0; i < arr.length ; i++) {
+        let elementArr = arr[i]
+        countObj[elementArr] ? countObj[elementArr]++ : (countObj[elementArr] = 1);
+        if (countObj[elementArr] <= n) {
+            result.push(elementArr)
+        }
+    }
+    return result
+}
+
+function deleteNth1(arr,x) { // вариант из лучших решений
+    let cache = {};
+    return arr.filter((n) => {
+        cache[n] = (cache[n]||0) + 1;
+        return cache[n] <= x;
+    });
+}
+
+console.log(deleteNth([1,1,1,1], 2)) // [ 1, 1 ]
+console.log(deleteNth([20,37,20,21], 1)) // [ 20, 37, 21 ]
+console.log(deleteNth([1,1,3,3,7,2,2,2,2], 3)) // [1, 1, 3, 3, 7, 2, 2, 2]
+
+console.log('*'.repeat(30))
