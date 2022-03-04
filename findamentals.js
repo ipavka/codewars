@@ -217,3 +217,19 @@ console.log(nbYear(1500000, 2.5, 10000, 2000000)) // 10
 console.log(nbYear(1500000, 0.25, 1000, 2000000)) // 94
 
 console.log('*'.repeat(30))
+
+
+/* https://www.codewars.com/kata/563cf89eb4747c5fb100001b/javascript */
+
+function removeSmallest(numbers) {
+    const array = [...numbers];
+    const min = Math.min(...array)
+    array.splice(array.indexOf(min), 1)
+    return array
+}
+
+console.log(removeSmallest([2,2,1,2,1]));
+console.log(removeSmallest([1,2,3,4,5]));
+console.log(removeSmallest([1,2,3,4,5]));
+
+console.log('*'.repeat(30))
