@@ -152,3 +152,42 @@ console.log(deleteNth([20,37,20,21], 1)) // [ 20, 37, 21 ]
 console.log(deleteNth([1,1,3,3,7,2,2,2,2], 3)) // [1, 1, 3, 3, 7, 2, 2, 2]
 
 console.log('*'.repeat(30))
+
+
+
+/* https://www.codewars.com/kata/5541f58a944b85ce6d00006a/javascript */
+
+const productFib = (mul) => {
+    let stopper = true;
+    let count = 1;
+    let result = []
+    while (stopper) {
+        let f1 = fib(count)
+        let f2 = fib(count + 1)
+        let f3 = fib(count + 2)
+        count++
+        if (f1 * f2 === mul) {
+            result.push(f1, f2, true)
+            stopper = false;
+        }  else if (f1 * f2 < mul && f2 * f3 > mul) {
+            result.push(f2, f3, false)
+            stopper = false;
+        }
+
+    }
+    return result
+}
+
+function fib(n) {
+    return n <= 1 ? n : fib(n - 1) + fib(n - 2);
+}
+
+console.log(productFib(4895)) //  [55, 89, true])
+console.log(productFib(5895)) //  [89, 144, false])
+console.log(productFib(74049690)) //  [6765, 10946, true])
+console.log(productFib(84049690)) //  [10946, 17711, false])
+console.log(productFib(193864606)) //  [10946, 17711, true])
+console.log(productFib(447577)) //  [610, 987, false])
+console.log(productFib(602070)) //  [610, 987, true])
+
+console.log('*'.repeat(30))
