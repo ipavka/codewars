@@ -238,3 +238,45 @@ console.log(six(dividedBy(two()))); // must return 3
 
 console.log('*'.repeat(30))
 
+
+/* https://www.codewars.com/kata/57f609022f4d534f05000024 */
+
+function stray(numbers) {
+    const result = numbers.reduce(function(acc, el) {
+        acc[el] ? acc[el]++ : (acc[el] = 1)
+        // acc[el] = (acc[el] || 0) + 1;
+        return acc;
+      }, {});
+
+      for (let key in result) {
+        if (result[key] === 1) {
+            return +key
+        }}
+  }
+
+  console.log(stray([1, 1, 2])) // ==> 2
+  console.log(stray([17, 17, 3, 17, 17, 17, 17])) // ==> 3
+
+  console.log('*'.repeat(30));
+
+
+/* https://www.codewars.com/kata/54ba84be607a92aa900000f1 */
+
+function isIsogram(str){
+  let setStr = new Set(str.toLowerCase()).size
+  if (setStr === str.length) return true;
+  return false
+}
+
+// function isIsogram(str){ 
+//   return !/(\w).*\1/i.test(str)
+// }
+
+console.log( isIsogram("Dermatoglyphics")) // true 
+console.log( isIsogram("isogram")) // true 
+console.log( isIsogram("aba")) // false, "same chars may not be adjacent" 
+console.log( isIsogram("moOse")) // false, "same chars may not be same case" 
+console.log( isIsogram("isIsogram")) // false 
+console.log( isIsogram("")) // true, "an empty string is a valid isogram"
+
+console.log('*'.repeat(30));
