@@ -280,3 +280,27 @@ console.log( isIsogram("isIsogram")) // false
 console.log( isIsogram("")) // true, "an empty string is a valid isogram"
 
 console.log('*'.repeat(30));
+
+
+/* https://www.codewars.com/kata/622de76d28bf330057cd6af8/train/javascript */
+
+const amountOfPages = (summary) => {
+    if(summary < 11) return summary
+    const arrNumbers = [];
+    let strNumbers = '';
+    for (let i = 0; i < summary; i++) {
+        strNumbers += i
+        arrNumbers.push(i)
+        if (strNumbers.length-1 === summary) {
+            return arrNumbers[i]
+        }
+    }
+}
+console.log(amountOfPages(5))
+console.log(amountOfPages(25))
+console.log(amountOfPages(1095))
+console.log(amountOfPages(185))
+console.log(amountOfPages(660))
+
+console.log('*'.repeat(30));
+
