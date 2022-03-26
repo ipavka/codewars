@@ -309,7 +309,17 @@ console.log('*'.repeat(30));
 
 
 const spinWords = (string) => {
-    //TODO Have fun :)
+    const result = [];
+    const arrString = string.split(' ');
+    for (let i = 0; i < arrString.length; i++) {
+        const element = arrString[i];
+        if (element.length >= 5) {
+            result.push(element.split('').reverse().join(''));
+        } else {
+            result.push(element);
+        }
+    }
+    return result.join(' ')
   }
 
   console.log(spinWords("Welcome")) // "emocleW"
