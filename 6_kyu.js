@@ -1,6 +1,6 @@
 /* https://www.codewars.com/kata/5168bb5dfe9a00b126000018/train/javascript */
 
-function solution(str){
+function solution(str) {
     return str.split('').reverse().join('')
 }
 
@@ -13,7 +13,7 @@ console.log('*'.repeat(30))
 
 /* https://www.codewars.com/kata/51f2d1cafc9c0f745c00037d/javascript */
 
-function solutionEnds(str, ending){
+function solutionEnds(str, ending) {
     return ending.length !== 0 ? str.slice(-ending.length) === ending : true
 }
 
@@ -41,7 +41,7 @@ console.log('*'.repeat(30))
 
 /* https://www.codewars.com/kata/520b9d2ad5c005041100000f/train/javascript */
 
-function pigIt(str){
+function pigIt(str) {
     let result = [];
     let inStr = str.split(' ')
     for (let i = 0; i < inStr.length; i++) {
@@ -70,7 +70,7 @@ function isSolved(board) {
         result[5].push(board[i][0])
         result[6].push(board[i][1])
         result[7].push(board[i][2])
-        result[8].push(board[i][(board.length-1)-i])
+        result[8].push(board[i][(board.length - 1) - i])
     }
     return findTruEqual(result) ? findTruEqual(result) : notWinner(result)
 }
@@ -97,25 +97,25 @@ function notWinner(obj) {
     return max === min ? 0 : -1
 }
 
-console.log(isSolved( [ // не до конца игры
-    [1,2,1],
-    [2,1,2],
-    [2,1,0]
+console.log(isSolved([ // не до конца игры
+    [1, 2, 1],
+    [2, 1, 2],
+    [2, 1, 0]
 ]))
 console.log(isSolved([ // вин "X" => 1
-    [0,1,1],
-    [0,1,2],
-    [2,1,0]
+    [0, 1, 1],
+    [0, 1, 2],
+    [2, 1, 0]
 ]))
-console.log(isSolved( [// вин "O" => 2
-    [1,1,2],
-    [1,2,2],
-    [2,2,1]
+console.log(isSolved([// вин "O" => 2
+    [1, 1, 2],
+    [1, 2, 2],
+    [2, 2, 1]
 ]))
-console.log(isSolved( [// Ничья
-    [1,2,2],
-    [2,2,1],
-    [1,1,2]
+console.log(isSolved([// Ничья
+    [1, 2, 2],
+    [2, 2, 1],
+    [1, 1, 2]
 ]))
 
 console.log('*'.repeat(30))
@@ -125,14 +125,14 @@ console.log('*'.repeat(30))
 
 
 function validParentheses(parens) {
-    if(parens.length === 0) {
+    if (parens.length === 0) {
         return true;
     } else if (parens.startsWith(')')) {
         return false
     }
     let arr = parens.split('')
     for (let i = 0; arr.length > 3; i++) {
-        if (arr[i] !== arr[i+1] && arr[i] !== ')') {
+        if (arr[i] !== arr[i + 1] && arr[i] !== ')') {
             arr.splice(i, 2)
             i = 0;
         }
@@ -184,7 +184,7 @@ console.log('*'.repeat(30))
 
 /* https://www.codewars.com/kata/514a024011ea4fb54200004b/train/javascript */
 
-function domainName(url){
+function domainName(url) {
     const result = [];
     if (url.startsWith('ht')) {
         result.push(url.split('//').splice(1).join(''))
@@ -198,7 +198,7 @@ function domainName(url){
     } else {
         return res[0]
     }
-  }
+}
 
 
 console.log(domainName("http://github.com/carbonfive/raygun")) // "github" 
@@ -214,21 +214,47 @@ console.log('*'.repeat(30))
 
 /* https://www.codewars.com/kata/525f3eda17c7cd9f9e000b39/train/javascript */
 
-function zero() {}
-function one() {}
-function two() {}
-function three() {}
-function four() {}
-function five() {}
-function six() {}
-function seven() {}
-function eight() {}
-function nine() {}
+function zero() {
+}
 
-function plus() {}
-function minus() {}
-function times() {}
-function dividedBy() {}
+function one() {
+}
+
+function two() {
+}
+
+function three() {
+}
+
+function four() {
+}
+
+function five() {
+}
+
+function six() {
+}
+
+function seven() {
+}
+
+function eight() {
+}
+
+function nine() {
+}
+
+function plus() {
+}
+
+function minus() {
+}
+
+function times() {
+}
+
+function dividedBy() {
+}
 
 
 console.log(seven(times(five()))); // must return 35
@@ -242,42 +268,43 @@ console.log('*'.repeat(30))
 /* https://www.codewars.com/kata/57f609022f4d534f05000024 */
 
 function stray(numbers) {
-    const result = numbers.reduce(function(acc, el) {
+    const result = numbers.reduce(function (acc, el) {
         acc[el] ? acc[el]++ : (acc[el] = 1)
         // acc[el] = (acc[el] || 0) + 1;
         return acc;
-      }, {});
+    }, {});
 
-      for (let key in result) {
+    for (let key in result) {
         if (result[key] === 1) {
             return +key
-        }}
-  }
+        }
+    }
+}
 
-  console.log(stray([1, 1, 2])) // ==> 2
-  console.log(stray([17, 17, 3, 17, 17, 17, 17])) // ==> 3
+console.log(stray([1, 1, 2])) // ==> 2
+console.log(stray([17, 17, 3, 17, 17, 17, 17])) // ==> 3
 
-  console.log('*'.repeat(30));
+console.log('*'.repeat(30));
 
 
 /* https://www.codewars.com/kata/54ba84be607a92aa900000f1 */
 
-function isIsogram(str){
-  let setStr = new Set(str.toLowerCase()).size
-  if (setStr === str.length) return true;
-  return false
+function isIsogram(str) {
+    let setStr = new Set(str.toLowerCase()).size
+    if (setStr === str.length) return true;
+    return false
 }
 
 // function isIsogram(str){ 
 //   return !/(\w).*\1/i.test(str)
 // }
 
-console.log( isIsogram("Dermatoglyphics")) // true 
-console.log( isIsogram("isogram")) // true 
-console.log( isIsogram("aba")) // false, "same chars may not be adjacent" 
-console.log( isIsogram("moOse")) // false, "same chars may not be same case" 
-console.log( isIsogram("isIsogram")) // false 
-console.log( isIsogram("")) // true, "an empty string is a valid isogram"
+console.log(isIsogram("Dermatoglyphics")) // true
+console.log(isIsogram("isogram")) // true
+console.log(isIsogram("aba")) // false, "same chars may not be adjacent"
+console.log(isIsogram("moOse")) // false, "same chars may not be same case"
+console.log(isIsogram("isIsogram")) // false
+console.log(isIsogram("")) // true, "an empty string is a valid isogram"
 
 console.log('*'.repeat(30));
 
@@ -285,13 +312,13 @@ console.log('*'.repeat(30));
 /* https://www.codewars.com/kata/622de76d28bf330057cd6af8/train/javascript */
 
 const amountOfPages = (summary) => {
-    if(summary < 11) return summary
+    if (summary < 11) return summary
     const arrNumbers = [];
     let strNumbers = '';
     for (let i = 0; i < summary; i++) {
         strNumbers += i
         arrNumbers.push(i)
-        if (strNumbers.length-1 === summary) {
+        if (strNumbers.length - 1 === summary) {
             return arrNumbers[i]
         }
     }
@@ -320,14 +347,37 @@ const spinWords = (string) => {
         }
     }
     return result.join(' ')
-  }
+}
 
-  console.log(spinWords("Welcome")) // "emocleW"
-  console.log(spinWords("Hey fellow warriors")) // "Hey wollef sroirraw"
-  console.log(spinWords("This is a test")) // "This is a test"
-  console.log(spinWords("This is another test")) // "This is rehtona test"
-  console.log(spinWords("You are almost to the last test")) // "You are tsomla to the last test"
-  console.log(spinWords("Just kidding there is still one more")) // "Just gniddik ereht is llits one more"
-  console.log(spinWords("Seriously this is the last one")) // "ylsuoireS this is the last one"
+console.log(spinWords("Welcome")) // "emocleW"
+console.log(spinWords("Hey fellow warriors")) // "Hey wollef sroirraw"
+console.log(spinWords("This is a test")) // "This is a test"
+console.log(spinWords("This is another test")) // "This is rehtona test"
+console.log(spinWords("You are almost to the last test")) // "You are tsomla to the last test"
+console.log(spinWords("Just kidding there is still one more")) // "Just gniddik ereht is llits one more"
+console.log(spinWords("Seriously this is the last one")) // "ylsuoireS this is the last one"
 
-  console.log('*'.repeat(30));
+console.log('*'.repeat(30));
+
+
+/* https://www.codewars.com/kata/541c8630095125aba6000c00/train/javascript */
+
+
+function digital_root(number) {
+    const strNumber = String(number)
+    let sum = strNumber.split('').reduce((acc, item) => acc + Number(item), 0)
+    while (String(sum).length > 1) {
+        sum = String(sum).split('').reduce((acc, item) => acc + Number(item), 0)
+    }
+    return sum
+
+    // return (number - 1) % 9 + 1;  // из готовых решений
+}
+
+console.log(digital_root(16)) // 7
+console.log(digital_root(456)) // 6
+console.log(digital_root(924)) // 6
+console.log(digital_root(132189)) // 6
+console.log(digital_root(493193)) // 2
+
+console.log('*'.repeat(30));
