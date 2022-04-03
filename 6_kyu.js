@@ -381,3 +381,49 @@ console.log(digital_root(132189)) // 6
 console.log(digital_root(493193)) // 2
 
 console.log('*'.repeat(30));
+
+
+/* https://www.codewars.com/kata/525f50e3b73515a6db000b83/train/javascript */
+
+const createPhoneNumber = (numbers) => {
+    const result = numbers.join('')
+    return `(${result.slice(0, 3)}) ${result.slice(3, 6)}-${result.slice(6, 10)}`
+}
+
+function createPhoneNumber1(numbers){
+    return numbers.reduce((p,c) => p.replace('x',c), "(xxx) xxx-xxxx");
+}
+
+function createPhoneNumber2(numbers){
+    return numbers.join('').replace(/(\d{3})(\d{3})(\d{4})/,'($1) $2-$3');
+}
+
+console.log(createPhoneNumber2([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])) //  "(123) 456-7890"
+console.log(createPhoneNumber2([1, 1, 1, 1, 1, 1, 1, 1, 1, 1])) //  "(111) 111-1111"
+console.log(createPhoneNumber2([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])) //  "(123) 456-7890"
+
+console.log('*'.repeat(30));
+
+
+/* https://www.codewars.com/kata/550554fd08b86f84fe000a58/train/javascript */
+
+
+function inArray(array1, array2) {
+    let result = new Set;
+    for (let i = 0; i < array1.length; i++) {
+        let itemCase = array1[i];
+        for (let j = 0; j < array2.length; j++) {
+            let itemBase = array2[j];
+            if (itemBase.includes(itemCase)) {
+                result.add(itemCase)
+            }
+        }
+    }
+    return Array.from(result).sort()
+}
+let arr1 = ["lively", "alive", "harp", "sharp", "armstrong"];
+let arr2 = ['live', 'strong', 'arp'];
+
+console.log(inArray(arr2, arr1)) // ["arp", "live", "strong"]
+
+console.log('*'.repeat(30));
