@@ -427,3 +427,43 @@ let arr2 = ['live', 'strong', 'arp'];
 console.log(inArray(arr2, arr1)) // ["arp", "live", "strong"]
 
 console.log('*'.repeat(30));
+
+
+/* https://www.codewars.com/kata/517abf86da9663f1d2000003/train/javascript */
+
+const toCamelCase = (str) => {
+    if(str === '') return str;
+    const strArr = str.includes('-') ? str.split('-') : str.split('_')
+    const result =  strArr.map((el, index) => {
+        let element = el[0]
+        if(element.toUpperCase() !== element) return `${index === 0 ? element : element.toUpperCase()}${el.slice(1)}`
+        return `${element}${el.slice(1)}`
+    })
+    return result.join('')
+}
+
+console.log(toCamelCase('')) //  ''
+console.log(toCamelCase("the_stealth_warrior")) //  "theStealthWarrior"
+console.log(toCamelCase("The-Stealth-Warrior")) //  "TheStealthWarrior"
+console.log(toCamelCase("A-B-C")) //  "ABC"
+
+console.log('*'.repeat(30));
+
+
+/* https://www.codewars.com/kata/515de9ae9dcfc28eb6000001/train/javascript */
+
+const solution1 = (str) => {
+    const result = [];
+    for (let i = 0; i < str.length; i += 2) {
+        const element = str[i]
+        const nextElement = str[i + 1] ? str[i+1] : '_'
+        result.push(`${element}${nextElement}`)
+    }
+    return result
+}
+
+console.log(solution1("abcdef")) //  ["ab", "cd", "ef"])
+console.log(solution1("abcdefg")) //  ["ab", "cd", "ef", "g_"])
+console.log(solution1("")) //  [])
+
+console.log('*'.repeat(30));
