@@ -467,3 +467,26 @@ console.log(solution1("abcdefg")) //  ["ab", "cd", "ef", "g_"])
 console.log(solution1("")) //  [])
 
 console.log('*'.repeat(30));
+
+
+/* https://www.codewars.com/kata/5848565e273af816fb000449 */
+
+var encryptThis = function(text) {
+    const result = [];
+    const arrString = text.split(' ');
+    for (let i = 0; i < arrString.length; i++) {
+        const itemCode = arrString[i].charCodeAt(0);
+        const itemWord = arrString[i].slice(1).split('');
+        [ itemWord[0], itemWord[itemWord.length - 1] ] = [ itemWord[itemWord.length - 1], itemWord[0] ]
+        result.push(`${itemCode}${itemWord.join('')}`)
+    }
+    return result.join(' ')
+}
+
+console.log(encryptThis('A'))
+console.log(encryptThis('Thank you Piotr for all your help'))
+console.log(encryptThis('Why can we not all be like that wise old bird'))
+
+console.log('*'.repeat(30));
+
+/*  */

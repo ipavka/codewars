@@ -35,9 +35,24 @@ function order(words){
     }).join(' ')
   }
 
+const formatString = (string) => {
+    const regexp = /\d/g;
+    const arrStr = string.split(' ').sort((a, b) => { // тут просто сортировка
+        return a.match(regexp).join('') - b.match(regexp).join('')})
+
+    return arrStr.map(el => { // тут оставляю только слова
+        return el.replace(/\d+/g, '')
+    }).join(' ')
+}
+
+
 console.log(order("is2 Thi1s T4est 3a")) // "Thi1s is2 3a T4est"
 console.log(order("4of Fo1r pe6ople g3ood th5e the2")) // "Fo1r the2 g3ood 4of th5e pe6ople"
-console.log(order("")) // "", "empty input should return empty string" 
+console.log(order("")) // "", "empty input should return empty string"
+
+console.log(formatString("is2 Thi1s T4est 3a")) // "", "empty input should return empty string"
+console.log(formatString("4of Fo1r pe6ople g3ood th5e the2")) // "", "empty input should return empty string"
+console.log(formatString("")) // "", "empty input should return empty string"
 
 console.log('*'.repeat(30))
 
