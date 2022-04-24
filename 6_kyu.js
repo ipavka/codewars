@@ -489,4 +489,78 @@ console.log(encryptThis('Why can we not all be like that wise old bird'))
 
 console.log('*'.repeat(30));
 
-/*  */
+
+/* https://www.codewars.com/kata/54521e9ec8e60bc4de000d6c/javascript */
+
+const maxSequence = (arr) => {
+    let result = 0;
+    let maxValue = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        const element = arr[i];
+        maxValue += element;
+        result = Math.max(result, maxValue);
+        
+        if (maxValue < 0) {
+            maxValue = 0;
+        }
+    }
+
+    return result;
+}
+
+console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4])); // 6
+
+console.log('*'.repeat(30));
+
+
+/* https://www.codewars.com/kata/526571aae218b8ee490006f4/javascript */
+
+
+const countBits = (n) => {
+    const num = n.toString(2)
+    return num.split('').reduce((acc, el) => acc += Number(el), 0)
+};
+
+console.log(countBits(1234)); // 5
+console.log(countBits(0)); // 0
+console.log(countBits(4)); // 1
+console.log(countBits(7)); // 3
+console.log(countBits(9)); // 2
+console.log(countBits(10)); // 2
+
+console.log('*'.repeat(30));
+
+
+/* https://www.codewars.com/kata/585d8c8a28bc7403ea0000c3/train/javascript */
+
+
+const indexUniqNumber = (arr) => {
+    let resultNumber;
+    for (let i = 0; i < arr.length; i++) {
+        let first = arr.indexOf(arr[i]);
+        let last = arr.lastIndexOf(arr[i]);
+        if (first === last) {
+            resultNumber = arr.indexOf(arr[i])
+        }
+    }
+    return resultNumber
+}
+const findUniq = (arr) => {
+    let result = []
+    for (let i = 0; i < arr.length; i++) {
+        const element = arr[i].replace(/ /g, '').toLocaleLowerCase();
+        result.push(Array.from(new Set(element)).reduce((acc, el) => acc += (el.codePointAt(0)), 0))
+    }
+    return arr[indexUniqNumber(result)]
+}
+
+
+console.log(findUniq(['Aa', 'aaa', 'aaaaa', 'BbBb', 'Aaaa', 'AaAaAa', 'a'])); // BbBb
+console.log(findUniq(['abc', 'acb', 'bac', 'foo', 'bca', 'cab', 'cba'])); // foo
+console.log(findUniq(['Tom Marvolo Riddle', 'I am Lord Voldemort', 'Harry Potter'])); // Harry Potter
+console.log(findUniq(['silvia', 'vasili', 'victor'])); // victor
+console.log(findUniq(['    ', 'a', ' '])); // a
+
+
+console.log('*'.repeat(30));
