@@ -489,4 +489,36 @@ console.log(encryptThis('Why can we not all be like that wise old bird'))
 
 console.log('*'.repeat(30));
 
+
+/* https://www.codewars.com/kata/583203e6eb35d7980400002a */
+
+const countSmileys = (arr) => {
+    const arrNose  = ['-', '~'];
+    const arrEyes = [':', ';'];
+    const arrMouth  = [')', 'D'];
+    return arr.reduce((acc, el) => {
+        if (el.length === 3) {
+            if (arrEyes.includes(el[0]) && arrMouth.includes(el[el.length - 1]) && arrNose.includes(el[1])) return acc + 1
+            return acc
+        } else if (el.length === 2) {
+            if (arrEyes.includes(el[0]) && arrMouth.includes(el[el.length - 1])) return acc + 1
+            return acc
+        } else return acc
+    }, 0)
+}
+
+// const countSmileys = (arr) => { // best solutions
+//     return arr.filter(x => /^[:;][-~]?[)D]$/.test(x)).length;
+// }
+
+console.log(countSmileys([])) //  0
+console.log(countSmileys([':D', ':~)', ';~D', ':)'])) //  4
+console.log(countSmileys([':)', ':(', ':D', ':O', ':;'])) //  2
+console.log(countSmileys([';]', ':[', ';*', ':$', ';-D'])) //  1
+console.log(countSmileys([ ':---)', '))', ';~~D', ';D' ])) //  1
+console.log(countSmileys([ ';~)', ':)', ':-)', ':--)' ])) //  3
+
+console.log('*'.repeat(30));
+
+
 /*  */
