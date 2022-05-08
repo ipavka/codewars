@@ -594,4 +594,56 @@ console.log(countSmileys([ ';~)', ':)', ':-)', ':--)' ])) //  3
 console.log('*'.repeat(30));
 
 
+/* https://www.codewars.com/kata/58539230879867a8cd00011c/javascript */
+
+const findChildren = (dancingBrigade) => {
+    const result = [];
+    const sortArr = dancingBrigade.toLowerCase().split('').sort();
+    for (let i = 0; i < sortArr.length-1; i++) {
+        let elem = sortArr[i]
+        let elemNext = sortArr[i+1]
+        if (i === 0) result.push(elem.toUpperCase())
+        if (elem !== elemNext) {
+            result.push(elemNext.toUpperCase())
+        } else {
+            result.push(elem)
+        }
+    }
+    return result.join('')
+}
+
+console.log(findChildren("beeeEBb")) // "BbbEeee"
+console.log(findChildren("uwwWUueEe")) // "EeeUuuWww"
+console.log(findChildren("abBA")) // "AaBb"
+console.log(findChildren("AaaaaZazzz")) // "AaaaaaZzzz"
+console.log(findChildren("CbcBcbaA")) // "AaBbbCcc"
+console.log(findChildren("xXfuUuuF")) // "FfUuuuXx"
+
+
+console.log('*'.repeat(30));
+
+
+/* https://www.codewars.com/kata/54bf1c2cd5b56cc47f0007a1/solutions/javascript */
+
+
+const duplicateCount = (text) => {
+    const arrWord = text.toLowerCase().split('')
+    let countObj = {};
+    arrWord.forEach(function (letter) {
+        countObj[letter] ? countObj[letter]++ : (countObj[letter] = 1);
+    });
+
+    return Object.values(countObj).reduce((acc, el) => el > 1 ? acc += 1 : acc, 0)
+}
+
+console.log(duplicateCount("")) //  0
+console.log(duplicateCount("abcde")) //  0
+console.log(duplicateCount("aabbcde")) //  2
+console.log(duplicateCount("aabBcde")) //  2,"should ignore case"
+console.log(duplicateCount("Indivisibility")) //  1
+console.log(duplicateCount("Indivisibilities")) //  2, "characters may not be adjacent"
+
+console.log('*'.repeat(30));
+
+
 /*  */

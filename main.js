@@ -17,6 +17,8 @@ console.log(list([{name: 'Bart'}, {name: 'Lisa'}, {name: 'Maggie'}]))
 console.log(list([ {name: 'Bart'}, {name: 'Lisa'} ]))
 console.log(list([ {name: 'Bart'} ]))
 console.log(list([]))
+
+
 console.log('*'.repeat(30))
 
 /* https://www.codewars.com/kata/545cedaa9943f7fe7b000048/train/javascript */
@@ -30,6 +32,8 @@ function isPangram(string){
 
 console.log(isPangram(inStr))
 console.log(isPangram(inStr1))
+
+
 console.log('*'.repeat(30))
 
 /* https://www.codewars.com/kata/54b42f9314d9229fd6000d9c/train/javascript */
