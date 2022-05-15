@@ -390,12 +390,12 @@ const createPhoneNumber = (numbers) => {
     return `(${result.slice(0, 3)}) ${result.slice(3, 6)}-${result.slice(6, 10)}`
 }
 
-function createPhoneNumber1(numbers){
-    return numbers.reduce((p,c) => p.replace('x',c), "(xxx) xxx-xxxx");
+function createPhoneNumber1(numbers) {
+    return numbers.reduce((p, c) => p.replace('x', c), "(xxx) xxx-xxxx");
 }
 
-function createPhoneNumber2(numbers){
-    return numbers.join('').replace(/(\d{3})(\d{3})(\d{4})/,'($1) $2-$3');
+function createPhoneNumber2(numbers) {
+    return numbers.join('').replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
 }
 
 console.log(createPhoneNumber2([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])) //  "(123) 456-7890"
@@ -421,6 +421,7 @@ function inArray(array1, array2) {
     }
     return Array.from(result).sort()
 }
+
 let arr1 = ["lively", "alive", "harp", "sharp", "armstrong"];
 let arr2 = ['live', 'strong', 'arp'];
 
@@ -432,11 +433,11 @@ console.log('*'.repeat(30));
 /* https://www.codewars.com/kata/517abf86da9663f1d2000003/train/javascript */
 
 const toCamelCase = (str) => {
-    if(str === '') return str;
+    if (str === '') return str;
     const strArr = str.includes('-') ? str.split('-') : str.split('_')
-    const result =  strArr.map((el, index) => {
+    const result = strArr.map((el, index) => {
         let element = el[0]
-        if(element.toUpperCase() !== element) return `${index === 0 ? element : element.toUpperCase()}${el.slice(1)}`
+        if (element.toUpperCase() !== element) return `${index === 0 ? element : element.toUpperCase()}${el.slice(1)}`
         return `${element}${el.slice(1)}`
     })
     return result.join('')
@@ -456,7 +457,7 @@ const solution1 = (str) => {
     const result = [];
     for (let i = 0; i < str.length; i += 2) {
         const element = str[i]
-        const nextElement = str[i + 1] ? str[i+1] : '_'
+        const nextElement = str[i + 1] ? str[i + 1] : '_'
         result.push(`${element}${nextElement}`)
     }
     return result
@@ -471,13 +472,13 @@ console.log('*'.repeat(30));
 
 /* https://www.codewars.com/kata/5848565e273af816fb000449 */
 
-var encryptThis = function(text) {
+var encryptThis = function (text) {
     const result = [];
     const arrString = text.split(' ');
     for (let i = 0; i < arrString.length; i++) {
         const itemCode = arrString[i].charCodeAt(0);
         const itemWord = arrString[i].slice(1).split('');
-        [ itemWord[0], itemWord[itemWord.length - 1] ] = [ itemWord[itemWord.length - 1], itemWord[0] ]
+        [itemWord[0], itemWord[itemWord.length - 1]] = [itemWord[itemWord.length - 1], itemWord[0]]
         result.push(`${itemCode}${itemWord.join('')}`)
     }
     return result.join(' ')
@@ -566,9 +567,9 @@ console.log('*'.repeat(30));
 /* https://www.codewars.com/kata/583203e6eb35d7980400002a */
 
 const countSmileys = (arr) => {
-    const arrNose  = ['-', '~'];
+    const arrNose = ['-', '~'];
     const arrEyes = [':', ';'];
-    const arrMouth  = [')', 'D'];
+    const arrMouth = [')', 'D'];
     return arr.reduce((acc, el) => {
         if (el.length === 3) {
             if (arrEyes.includes(el[0]) && arrMouth.includes(el[el.length - 1]) && arrNose.includes(el[1])) return acc + 1
@@ -588,8 +589,8 @@ console.log(countSmileys([])) //  0
 console.log(countSmileys([':D', ':~)', ';~D', ':)'])) //  4
 console.log(countSmileys([':)', ':(', ':D', ':O', ':;'])) //  2
 console.log(countSmileys([';]', ':[', ';*', ':$', ';-D'])) //  1
-console.log(countSmileys([ ':---)', '))', ';~~D', ';D' ])) //  1
-console.log(countSmileys([ ';~)', ':)', ':-)', ':--)' ])) //  3
+console.log(countSmileys([':---)', '))', ';~~D', ';D'])) //  1
+console.log(countSmileys([';~)', ':)', ':-)', ':--)'])) //  3
 
 console.log('*'.repeat(30));
 
@@ -599,9 +600,9 @@ console.log('*'.repeat(30));
 const findChildren = (dancingBrigade) => {
     const result = [];
     const sortArr = dancingBrigade.toLowerCase().split('').sort();
-    for (let i = 0; i < sortArr.length-1; i++) {
+    for (let i = 0; i < sortArr.length - 1; i++) {
         let elem = sortArr[i]
-        let elemNext = sortArr[i+1]
+        let elemNext = sortArr[i + 1]
         if (i === 0) result.push(elem.toUpperCase())
         if (elem !== elemNext) {
             result.push(elemNext.toUpperCase())
@@ -642,6 +643,29 @@ console.log(duplicateCount("aabbcde")) //  2
 console.log(duplicateCount("aabBcde")) //  2,"should ignore case"
 console.log(duplicateCount("Indivisibility")) //  1
 console.log(duplicateCount("Indivisibilities")) //  2, "characters may not be adjacent"
+
+console.log('*'.repeat(30));
+
+
+/* https://www.codewars.com/kata/5526fc09a1bbd946250002dc/javascript */
+
+const findOutlier = (integers) => {
+    const odd = [];
+    const even = [];
+    for (let i = 0; i < integers.length; i++) {
+        const element = integers[i];
+        element % 2 === 0 ? even.push(element) : odd.push(element)
+    }
+    return odd.length > 1 ? even[0] : odd[0]
+}
+
+console.log(findOutlier([0, 1, 2])) //  1
+console.log(findOutlier([2, 4, 0, 100, 4, 11, 2602, 36])) //  11 odd
+console.log(findOutlier([160, 3, 1719, 19, 11, 13, -21])) //  160 even
+console.log(findOutlier([1, 2, 3])) //  2
+console.log(findOutlier([2, 6, 8, 10, 3])) //  3
+console.log(findOutlier([0, 0, 3, 0, 0])) //  3
+console.log(findOutlier([1, 1, 0, 1, 1])) //  0
 
 console.log('*'.repeat(30));
 
