@@ -757,12 +757,58 @@ console.log(romanNumerals(5)) // 'V'
 console.log(romanNumerals(9)) // 'IX'
 console.log(romanNumerals(10)) // 'X'
 console.log(romanNumerals(50)) // 'L'
+console.log(romanNumerals(99)) // 'XCIX'
 console.log(romanNumerals(100)) // 'C'
 console.log(romanNumerals(1000)) // 'M'
 console.log(romanNumerals(1001)) // 'MI'
 console.log(romanNumerals(1990)) // 'MCMXC'
 console.log(romanNumerals(2007)) // 'MMVII'
+console.log(romanNumerals(2004)) // 'MMIV'
 console.log(romanNumerals(2008)) // 'MMVIII'
 console.log(romanNumerals(2020)) // 'MMXX'
+console.log(romanNumerals(1499)) // 'MCDXCIX'
+
+console.log('*'.repeat(30));
+
+
+/* https://www.codewars.com/kata/51b6249c4612257ac0000005/train/javascript */
+
+const romanNum = {
+    M: 1000, CM: 900, D: 500,
+    CD: 400, C: 100, XC: 90,
+    L: 50, XL: 40, X: 10,
+    IX: 9, V: 5, IV: 4, I: 1
+};
+const corner = ["IV", "IX", "XL", "XC", "CD", "CM"];
+
+const countCorner = (romNum) => {
+    let result = 0;
+    for (let i = 0; i < romNum.length; i++) {
+        const element = romNum[i];
+        result += romanNum[element]
+    }
+    return result
+}
+const romanNumDecoder = (numberStr) => {
+    let count = 0;
+    for (let i = 0; i < corner.length; i++) {
+        const element = corner[i];
+        if(numberStr.includes(element)){
+            while (numberStr.includes(element)) {
+                numberStr = numberStr.replace(element, '');
+                count += romanNum[element];
+            }
+        }
+    }
+    return count + countCorner(numberStr)
+}
+
+console.log(romanNumDecoder('XXI')) //  21
+console.log(romanNumDecoder('I')) //  1
+console.log(romanNumDecoder('IV')) //  4
+console.log(romanNumDecoder('MMVIII')) //  2008
+console.log(romanNumDecoder('MDCLXVI')) //  1666
+console.log(romanNumDecoder('MCDXCIX')) //  1499
+
 
 console.log('*'.repeat(30));
