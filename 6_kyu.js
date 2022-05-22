@@ -729,3 +729,40 @@ console.log(decodeMorse('      ...---... -.-.--   - ....' +
     ' -.--   -.. --- --. .-.-.- '));
 
 console.log('*'.repeat(30));
+
+
+/* https://www.codewars.com/kata/51b62bf6a9c58071c600001b/javascript */
+
+
+const romanNumerals = number => {
+    const romanNum = {
+        M: 1000, CM: 900, D: 500,
+        CD: 400, C: 100, XC: 90,
+        L: 50, XL: 40, X: 10,
+        IX: 9, V: 5, IV: 4, I: 1
+    };
+    let result = '';
+    for (let i in romanNum) {
+        while (number >= romanNum[i]) {
+            result += i;
+            number -= romanNum[i];
+        }
+    }
+    return result;
+};
+
+console.log(romanNumerals(1)) // 'I'
+console.log(romanNumerals(4)) // 'IV'
+console.log(romanNumerals(5)) // 'V'
+console.log(romanNumerals(9)) // 'IX'
+console.log(romanNumerals(10)) // 'X'
+console.log(romanNumerals(50)) // 'L'
+console.log(romanNumerals(100)) // 'C'
+console.log(romanNumerals(1000)) // 'M'
+console.log(romanNumerals(1001)) // 'MI'
+console.log(romanNumerals(1990)) // 'MCMXC'
+console.log(romanNumerals(2007)) // 'MMVII'
+console.log(romanNumerals(2008)) // 'MMVIII'
+console.log(romanNumerals(2020)) // 'MMXX'
+
+console.log('*'.repeat(30));
