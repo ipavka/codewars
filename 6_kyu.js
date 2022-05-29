@@ -812,3 +812,26 @@ console.log(romanNumDecoder('MCDXCIX')) //  1499
 
 
 console.log('*'.repeat(30));
+
+
+/* https://www.codewars.com/kata/5839edaa6754d6fec10000a2/javascript */
+
+
+const findMissingLetter = (array) => {
+    let arr_en;
+    const arr_enUpper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
+        'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    const arr_enLower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+        'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    if(/^[A-Z]*$/.test(array[0])) {
+        arr_en = arr_enUpper;
+    } else {
+        arr_en = arr_enLower;
+    }
+    const sliceArr = arr_en.slice(arr_en.indexOf(array[0]), arr_en.indexOf(array[array.length - 1]) + 1);
+    return sliceArr.filter(el => !array.includes(el))[0];
+}
+console.log(findMissingLetter(["a", "b", "c", "d", "f"]))
+console.log(findMissingLetter(["O", "Q", "R", "S"]))
+
+console.log('*'.repeat(30));
