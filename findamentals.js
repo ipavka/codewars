@@ -108,7 +108,7 @@ console.log('*'.repeat(30));
 
 /* https://www.codewars.com/kata/555eded1ad94b00403000071/train/javascript */
 
-function SeriesSum(n) {
+function seriesSum(n) {
   let count = 0;
   let sum = 0;
   for (let i = 1; count < n; i = i + 3) {
@@ -118,11 +118,11 @@ function SeriesSum(n) {
   return sum.toFixed(2);
 }
 
-console.log(SeriesSum(1)); // "1.00"
-console.log(SeriesSum(2)); // "1.25"
-console.log(SeriesSum(3)); // "1.39"
-console.log(SeriesSum(4)); // "1.49"
-console.log(SeriesSum(5)); // "1.57"
+console.log(seriesSum(1)); // "1.00"
+console.log(seriesSum(2)); // "1.25"
+console.log(seriesSum(3)); // "1.39"
+console.log(seriesSum(4)); // "1.49"
+console.log(seriesSum(5)); // "1.57"
 
 console.log('*'.repeat(30));
 
