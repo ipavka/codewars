@@ -56,3 +56,59 @@ console.log(twoSum([2, 7, 11, 15], 9)); // [0,1]
 console.log(twoSum([3, 2, 4], 6)); // [1, 2]
 console.log(twoSum([2, 2, 3], 4)); // [0, 1]
 console.log(twoSum(testArr, -64)); // [ 5, 44 ]
+
+console.log('*'.repeat(30));
+
+/* https://www.codewars.com/kata/52efefcbcdf57161d4000091/train/javascript */
+
+function count(string) {
+  if (string) {
+    const result = {};
+    const arrString = string.split('');
+    arrString.forEach(el => {
+      result[el] ? result[el]++ : result[el] = 1 ;
+    });
+    return result;
+  }
+  return {};
+}
+
+console.log(count('')) //  {}
+console.log(count('a')) //  {'a': 1}
+console.log(count('ab')) //  {'a': 1, 'b': 1}
+console.log(count('aba')) // {'a': 2, 'b': 1}
+console.log(count('ABC')) // {'A': 1, 'B': 1, 'C': 1
+
+console.log('*'.repeat(30));
+
+
+/* https://www.codewars.com/kata/56d9439813f38853b40000e4/javascript */
+
+Array.prototype.toString = function () {
+  const result = []
+  const inputValue = this;
+  inputValue.forEach(el => {
+    if (typeof el === 'string') {
+      result.push(`'${el}'`)
+    } else result.push(el);
+  })
+  return `[${result.join(',')}]`
+}
+
+/*
+Array.prototype.toString = function() {
+  return '[' + this.map(m => typeof m === 'string' ? "'" + m.toString() + "'" : m.toString()).join(',') + ']';
+}
+*/
+
+const strTest1 = "[[[[[[]]],[]]]]";
+const strTest2 = "['foobar',[['hello']]]";
+const strTest3 = "[1.545,[2,4,[23532],55,2.3,[15.22,0.3,[],[[72,3],5]]]]";
+
+console.log([].toString()); // "[]"
+console.log([3.14].toString()); // "[3.14]"
+console.log([[[[[[]]],[]]]].toString() === strTest1);
+console.log(["foobar",[["hello"]]].toString() === strTest2);
+console.log([1.545,[2,4,[23532],55,2.3,[15.22,0.3,[],[[72,3],5]]]].toString() === strTest3);
+
+console.log('*'.repeat(30));
