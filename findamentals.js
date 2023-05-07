@@ -248,3 +248,18 @@ console.log(removeSmallest([1, 2, 3, 4, 5]));
 console.log(removeSmallest([2, 2, 1, 2, 1]));
 
 console.log('*'.repeat(30));
+
+
+/* https://www.codewars.com/kata/57a1fd2ce298a731b20006a4 */
+/* Палиндром рекурсия */
+function isPalindrome(x, i = 0) {
+  let word = x.toLowerCase()
+  if (i === Math.floor(word.length / 2)) return true;
+  if (word.charAt(i) !== word.charAt(word.length - 1 - i)) return false;
+  return isPalindrome(word, ++i)
+}
+
+console.log(isPalindrome('доход'))
+console.log(isPalindrome('Abba'))
+
+console.log('*'.repeat(30));
